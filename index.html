@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,6 +8,7 @@
     <link rel="stylesheet" href="style.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
 </head>
+
 <body>
     <!-- Custom Cursor -->
     <div class="custom-cursor">
@@ -47,29 +49,43 @@
                 <div class="profile-section">
                     <div class="profile-frame">
                         <div class="profile-photo">
-                            <img src="profile.jpg.jpeg" alt="Jayakumar A Professional Photo" class="profile-image" />
+                            <img src="profile.jpeg.jpeg" alt="Jayakumar A Professional Photo" class="profile-image"
+                                id="profile-img" crossorigin="anonymous" onerror="handleImageError(this)">
+                            <div class="profile-fallback" id="profile-fallback">
+                                <span>JA</span>
+                            </div>
                         </div>
                         <div class="profile-ring"></div>
                         <div class="profile-ring-outer"></div>
+                        <div class="profile-particles">
+                            <div class="particle"></div>
+                            <div class="particle"></div>
+                            <div class="particle"></div>
+                            <div class="particle"></div>
+                            <div class="particle"></div>
+                        </div>
                         <div class="profile-glow"></div>
                     </div>
                 </div>
                 <div class="hero-text">
                     <h1 class="hero-title">
                         <span class="greeting">Hello, I'm Jayakumar</span>
-                        <span class="name">Software Engineer</span>
+                        <span class="name">Data Analyst</span>
                     </h1>
-                    <p class="hero-subtitle">Building Intelligent Software Solutions</p>
-                    <p class="hero-description">Skilled Software Engineer with 1 year of experience in Flutter development. Proficient in Java, Python, FastAPI, ScyllaDB, and Angular. Built real-time and AI-based applications with strong focus on API design and responsive UI.</p>
-                    <button class="cta-btn">
-                        <span>View My Work</span>
-                        <i class="fas fa-arrow-down"></i>
-                    </button>
+                    <p class="hero-subtitle">Turning Data into Actionable Insights</p>
+                    <p class="hero-description">Skilled Data Analyst with 1 year of experience in Python, SQL, Excel,
+                        Power BI, and Tableau. Specialized in data cleaning, visualization, and generating actionable
+                        business insights.</p>
+                    <div class="hero-buttons">
+                        <button class="cta-btn" id="view-work-btn">
+                            <span>View My Work</span>
+                            <i class="fas fa-arrow-down"></i>
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
-
     <!-- About Section -->
     <section id="about" class="about">
         <div class="container">
@@ -80,7 +96,11 @@
             <div class="about-content">
                 <div class="about-text">
                     <div class="about-summary">
-                        <p class="typewriter-text">Skilled Software Engineer with <span class="highlight-number" data-target="1">1</span> year of experience specializing in Flutter development and full-stack solutions. I have a strong background in AI and Data Science with hands-on experience building real-time applications, AI-powered systems, and responsive user interfaces. Quick learner, team player, and passionate about building impactful software that solves real-world problems.</p>
+                        <p class="typewriter-text">Skilled Data Analyst with <span class="highlight-number"
+                                data-target="1">1</span>year of experience specializing in data analysis, visualization,
+                            and business intelligence. I have a strong background in Python, SQL, Excel, Power BI, and
+                            Tableau with hands-on experience in cleaning large datasets, building interactive
+                            dashboards, and applying statistical techniques to extract actionable insights.</p>
                     </div>
                     <div class="highlights">
                         <div class="highlight-item slide-in-left" style="--delay: 0.2s">
@@ -88,7 +108,7 @@
                                 <i class="fas fa-code"></i>
                             </div>
                             <div class="highlight-content">
-                                <span class="highlight-text">1+ year of professional full-stack development experience</span>
+                                <span class="highlight-text">1+ year of professional Data Analyst experience</span>
                             </div>
                         </div>
                         <div class="highlight-item slide-in-left" style="--delay: 0.4s">
@@ -96,7 +116,8 @@
                                 <i class="fas fa-mobile-alt"></i>
                             </div>
                             <div class="highlight-content">
-                                <span class="highlight-text">Expertise in Flutter, Python, Java, and modern web technologies</span>
+                                <span class="highlight-text">Expertise in Python, SQL, Excel, Power BI, and Tableau for
+                                    data analysis and visualization</span>
                             </div>
                         </div>
                         <div class="highlight-item slide-in-left" style="--delay: 0.6s">
@@ -104,7 +125,8 @@
                                 <i class="fas fa-brain"></i>
                             </div>
                             <div class="highlight-content">
-                                <span class="highlight-text">Built real-time streaming applications and AI-based systems</span>
+                                <span class="highlight-text">Built real-time streaming applications and AI-based
+                                    systems</span>
                             </div>
                         </div>
                         <div class="highlight-item slide-in-left" style="--delay: 0.8s">
@@ -120,7 +142,8 @@
                                 <i class="fas fa-database"></i>
                             </div>
                             <div class="highlight-content">
-                                <span class="highlight-text">Experience with multiple databases (ScyllaDB, PostgreSQL, MongoDB)</span>
+                                <span class="highlight-text">Experience with multiple databases (ScyllaDB, PostgreSQL,
+                                    MongoDB)</span>
                             </div>
                         </div>
                         <div class="highlight-item slide-in-left" style="--delay: 1.2s">
@@ -128,7 +151,8 @@
                                 <i class="fas fa-rocket"></i>
                             </div>
                             <div class="highlight-content">
-                                <span class="highlight-text">Quick learner and passionate about turning ideas into working solutions</span>
+                                <span class="highlight-text">Quick learner and passionate about turning data into
+                                    actionable insights</span>
                             </div>
                         </div>
                     </div>
@@ -151,58 +175,48 @@
             </div>
             <div class="skills-grid">
                 <div class="skill-category">
-                    <h3>Programming Languages</h3>
+                    <h3>Programming & Analytics</h3>
                     <div class="skill-items">
                         <div class="skill-item" data-skill="Python" data-proficiency="90">
                             <i class="fab fa-python"></i>
-                            <span>Python</span>
+                            <span>Python (Pandas, NumPy)</span>
                             <div class="skill-percentage">90%</div>
                         </div>
-                        <div class="skill-item" data-skill="Java" data-proficiency="80">
-                            <i class="fab fa-java"></i>
-                            <span>Java</span>
-                            <div class="skill-percentage">80%</div>
+                        <div class="skill-item" data-skill="R" data-proficiency="75">
+                            <i class="fas fa-chart-line"></i>
+                            <span>R Programming</span>
+                            <div class="skill-percentage">75%</div>
                         </div>
-                        <div class="skill-item" data-skill="JavaScript" data-proficiency="80">
-                            <i class="fab fa-js-square"></i>
-                            <span>JavaScript</span>
-                            <div class="skill-percentage">80%</div>
-                        </div>
-                        <div class="skill-item" data-skill="HTML5" data-proficiency="85">
-                            <i class="fab fa-html5"></i>
-                            <span>HTML5</span>
+                        <div class="skill-item" data-skill="SQL" data-proficiency="85">
+                            <i class="fas fa-database"></i>
+                            <span>SQL</span>
                             <div class="skill-percentage">85%</div>
                         </div>
-                        <div class="skill-item" data-skill="CSS3" data-proficiency="80">
-                            <i class="fab fa-css3-alt"></i>
-                            <span>CSS3</span>
-                            <div class="skill-percentage">80%</div>
+                        <div class="skill-item" data-skill="Excel" data-proficiency="85">
+                            <i class="fas fa-file-excel"></i>
+                            <span>Excel (Advanced)</span>
+                            <div class="skill-percentage">85%</div>
                         </div>
                     </div>
                 </div>
 
                 <div class="skill-category">
-                    <h3>Frameworks & Libraries</h3>
+                    <h3>Data Visualization</h3>
                     <div class="skill-items">
-                        <div class="skill-item" data-skill="Flutter" data-proficiency="85">
-                            <i class="fas fa-mobile-alt"></i>
-                            <span>Flutter</span>
+                        <div class="skill-item" data-skill="Tableau" data-proficiency="80">
+                            <i class="fas fa-chart-pie"></i>
+                            <span>Tableau</span>
+                            <div class="skill-percentage">80%</div>
+                        </div>
+                        <div class="skill-item" data-skill="Power BI" data-proficiency="80">
+                            <i class="fas fa-chart-bar"></i>
+                            <span>Power BI</span>
+                            <div class="skill-percentage">80%</div>
+                        </div>
+                        <div class="skill-item" data-skill="Matplotlib" data-proficiency="85">
+                            <i class="fas fa-chart-area"></i>
+                            <span>Matplotlib / Seaborn</span>
                             <div class="skill-percentage">85%</div>
-                        </div>
-                        <div class="skill-item" data-skill="Angular" data-proficiency="80">
-                            <i class="fab fa-angular"></i>
-                            <span>Angular JS</span>
-                            <div class="skill-percentage">80%</div>
-                        </div>
-                        <div class="skill-item" data-skill="Node.js" data-proficiency="70">
-                            <i class="fab fa-node-js"></i>
-                            <span>Node.js</span>
-                            <div class="skill-percentage">70%</div>
-                        </div>
-                        <div class="skill-item" data-skill="FastAPI" data-proficiency="80">
-                            <i class="fas fa-server"></i>
-                            <span>FastAPI</span>
-                            <div class="skill-percentage">80%</div>
                         </div>
                     </div>
                 </div>
@@ -210,24 +224,44 @@
                 <div class="skill-category">
                     <h3>Databases</h3>
                     <div class="skill-items">
-                        <div class="skill-item" data-skill="MongoDB" data-proficiency="80">
-                            <i class="fas fa-leaf"></i>
-                            <span>MongoDB</span>
-                            <div class="skill-percentage">80%</div>
-                        </div>
                         <div class="skill-item" data-skill="MySQL" data-proficiency="80">
                             <i class="fas fa-database"></i>
                             <span>MySQL</span>
                             <div class="skill-percentage">80%</div>
                         </div>
-                        <div class="skill-item" data-skill="ScyllaDB" data-proficiency="75">
-                            <i class="fas fa-database"></i>
-                            <span>ScyllaDB</span>
-                            <div class="skill-percentage">75%</div>
-                        </div>
                         <div class="skill-item" data-skill="PostgreSQL" data-proficiency="80">
                             <i class="fas fa-database"></i>
                             <span>PostgreSQL</span>
+                            <div class="skill-percentage">80%</div>
+                        </div>
+                        <div class="skill-item" data-skill="MongoDB" data-proficiency="75">
+                            <i class="fas fa-leaf"></i>
+                            <span>MongoDB</span>
+                            <div class="skill-percentage">75%</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3>UI & Frameworks</h3>
+                    <div class="skill-items">
+                        <div class="skill-item" data-skill="Flutter" data-proficiency="85">
+                            <i class="fas fa-mobile-alt"></i>
+                            <span>Flutter</span>
+                            <div class="skill-percentage">85%</div>
+                        </div>
+                        <div class="skill-item" data-skill="HTML5" data-proficiency="90">
+                            <i class="fab fa-html5"></i>
+                            <span>HTML5</span>
+                            <div class="skill-percentage">90%</div>
+                        </div>
+                        <div class="skill-item" data-skill="CSS3" data-proficiency="85">
+                            <i class="fab fa-css3-alt"></i>
+                            <span>CSS3</span>
+                            <div class="skill-percentage">85%</div>
+                        </div>
+                        <div class="skill-item" data-skill="JavaScript" data-proficiency="80">
+                            <i class="fab fa-js-square"></i>
+                            <span>JavaScript</span>
                             <div class="skill-percentage">80%</div>
                         </div>
                     </div>
@@ -274,7 +308,10 @@
                     </div>
                     <div class="project-content">
                         <h3>Phish Secure AI</h3>
-                        <p>Developed an AI-powered phishing detection system using Natural Language Processing and machine learning algorithms. The system analyzes email content to identify potential phishing attempts in real-time, increasing email security and reducing social engineering risks.</p>
+                        <p>Developed an AI-powered phishing detection system using Natural Language Processing and
+                            machine learning algorithms. The system analyzes email content to identify potential
+                            phishing attempts in real-time, increasing email security and reducing social engineering
+                            risks.</p>
                         <div class="project-tech">
                             <span class="tech-tag">Python</span>
                             <span class="tech-tag">NLP</span>
@@ -282,7 +319,8 @@
                             <span class="tech-tag">AI</span>
                         </div>
                         <div class="project-links">
-                            <a href="https://github.com/jayakumar02/phish-secure-ai" target="_blank" class="project-link">
+                            <a href="https://github.com/jayakumar02/phish-secure-ai" target="_blank"
+                                class="project-link">
                                 <i class="fab fa-github"></i>
                                 <span>Code</span>
                             </a>
@@ -302,7 +340,9 @@
                     </div>
                     <div class="project-content">
                         <h3>Brand Evaluation AI System</h3>
-                        <p>Built a machine learning-based NLP system that evaluates brand perception, customer sentiment, and market trends by analyzing data from reviews, social media, and news sources. Helped businesses understand public opinion and competitor benchmarks.</p>
+                        <p>Built a machine learning-based NLP system that evaluates brand perception, customer
+                            sentiment, and market trends by analyzing data from reviews, social media, and news sources.
+                            Helped businesses understand public opinion and competitor benchmarks.</p>
                         <div class="project-tech">
                             <span class="tech-tag">Python</span>
                             <span class="tech-tag">Machine Learning</span>
@@ -310,7 +350,8 @@
                             <span class="tech-tag">Sentiment Analysis</span>
                         </div>
                         <div class="project-links">
-                            <a href="https://github.com/jayakumar02/brand-evaluation-ai" target="_blank" class="project-link">
+                            <a href="https://github.com/jayakumar02/brand-evaluation-ai" target="_blank"
+                                class="project-link">
                                 <i class="fab fa-github"></i>
                                 <span>Code</span>
                             </a>
@@ -330,7 +371,9 @@
                     </div>
                     <div class="project-content">
                         <h3>Population Governance Research Platform</h3>
-                        <p>Built comprehensive APIs with FastAPI and integrated ScyllaDB, PostgreSQL, and Druid databases. Enabled real-time streaming using NATS FastStream and managed backend infrastructure for population research data.</p>
+                        <p>Built comprehensive APIs with FastAPI and integrated ScyllaDB, PostgreSQL, and Druid
+                            databases. Enabled real-time streaming using NATS FastStream and managed backend
+                            infrastructure for population research data.</p>
                         <div class="project-tech">
                             <span class="tech-tag">FastAPI</span>
                             <span class="tech-tag">ScyllaDB</span>
@@ -338,7 +381,8 @@
                             <span class="tech-tag">NATS FastStream</span>
                         </div>
                         <div class="project-links">
-                            <a href="https://github.com/jayakumar02/population-governance" target="_blank" class="project-link">
+                            <a href="https://github.com/jayakumar02/population-governance" target="_blank"
+                                class="project-link">
                                 <i class="fab fa-github"></i>
                                 <span>Code</span>
                             </a>
@@ -361,24 +405,51 @@
                 <div class="title-underline"></div>
             </div>
             <div class="timeline">
+
+                <!-- Experience 1 -->
                 <div class="timeline-item">
                     <div class="timeline-marker"></div>
                     <div class="timeline-content">
-                        <h3>FullStack Developer</h3>
-                        <h4>ANDIRAN HEALTH TECH PVT LTD</h4>
-                        <span class="timeline-date">Jun 2024 - May 2025</span>
+                        <h3>Data Analyst - Intern</h3>
+                        <h4>The Brand Hypothesis</h4>
+                        <span class="timeline-date">Jan 2024 - May 2024</span>
                         <span class="timeline-location">Chennai, India</span>
                         <ul>
-                            <li>Built APIs with FastAPI and integrated ScyllaDB, PostgreSQL, and Druid databases</li>
-                            <li>Enabled real-time streaming using NATS FastStream for population governance research</li>
-                            <li>Developed Firebase app linked to PostgreSQL database for event-based surveillance</li>
-                            <li>Built ETL scripts using Python on Firebase Functions for data processing</li>
-                            <li>Created responsive UI screens using Flutter for clinical governance research</li>
-                            <li>Integrated frontend with backend APIs and managed full-stack performance</li>
-                            <li>Handled backend pipelines and infrastructure management</li>
+                            <li>Designed sentiment analysis models in Python to uncover key trends for product and
+                                campaign optimization.</li>
+                            <li>Automated reporting workflows using SQL, Excel, and Power BI to streamline KPIs for
+                                decision-makers.</li>
+                            <li>Collaborated with business and technical teams in an agile environment to deliver
+                                measurable business outcomes.</li>
+                            <li>Developed analytic algorithms in Python with integrated data insights and visualizations
+                                to support business objectives.</li>
                         </ul>
                     </div>
                 </div>
+
+                <!-- Experience 2 -->
+                <div class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <h3>Data Analyst</h3>
+                        <h4>Andiran Healthtech Pvt Ltd</h4>
+                        <span class="timeline-date">Jun 2024 - May 2025</span>
+                        <span class="timeline-location">Chennai, India</span>
+                        <ul>
+                            <li>Maintained BI dashboards in Power BI with advanced DAX and Power Query for accurate
+                                reporting and metrics.</li>
+                            <li>Extracted and integrated multi-source data using SQL and Excel to create comprehensive
+                                datasets for actionable insights.</li>
+                            <li>Partnered with stakeholders to translate business requirements into scalable product
+                                features with clear documentation.</li>
+                            <li>Ensured data governance by documenting methodologies, business rules, and quality
+                                standards.</li>
+                            <li>Conducted customer insights and sales performance analyses to support strategic
+                                decision-making.</li>
+                        </ul>
+                    </div>
+                </div>
+
             </div>
         </div>
     </section>
@@ -411,7 +482,7 @@
                         </div>
                         <div class="education-particles"></div>
                     </div>
-                    
+
                     <div class="education-card flip-card" style="--delay: 0.3s">
                         <div class="education-icon school">
                             <i class="fas fa-school"></i>
@@ -430,7 +501,7 @@
                         </div>
                         <div class="education-particles"></div>
                     </div>
-                    
+
                     <div class="education-card flip-card" style="--delay: 0.6s">
                         <div class="education-icon school">
                             <i class="fas fa-school"></i>
@@ -476,7 +547,20 @@
                         <div class="badge-shine"></div>
                     </div>
                 </div>
-                
+                <div class="cert-card cert-fly-in" data-direction="top-right" style="--delay: 0.2s">
+                    <div class="cert-icon cert-icon-rotate">
+                        <i class="fas fa-database"></i>
+                        <div class="cert-glow udemy-glow"></div>
+                    </div>
+                    <div class="cert-content">
+                        <h3>Complete Data Analyst Bootcamp: Basics to Advanced</h3>
+                        <p>Udemy</p>
+                        <span class="cert-date typewrite-date">2024</span>
+                    </div>
+                    <div class="cert-badge">
+                        <div class="badge-shine"></div>
+                    </div>
+                </div>
                 <div class="cert-card cert-fly-in" data-direction="top-right" style="--delay: 0.2s">
                     <div class="cert-icon cert-icon-rotate">
                         <i class="fas fa-brain"></i>
@@ -491,7 +575,7 @@
                         <div class="badge-shine"></div>
                     </div>
                 </div>
-                
+
                 <div class="cert-card cert-fly-in" data-direction="left" style="--delay: 0.3s">
                     <div class="cert-icon cert-icon-rotate">
                         <i class="fas fa-chart-bar"></i>
@@ -506,7 +590,7 @@
                         <div class="badge-shine"></div>
                     </div>
                 </div>
-                
+
                 <div class="cert-card cert-fly-in" data-direction="right" style="--delay: 0.4s">
                     <div class="cert-icon cert-icon-rotate">
                         <i class="fab fa-wordpress"></i>
@@ -521,7 +605,7 @@
                         <div class="badge-shine"></div>
                     </div>
                 </div>
-                
+
                 <div class="cert-card cert-fly-in" data-direction="bottom-left" style="--delay: 0.5s">
                     <div class="cert-icon cert-icon-rotate">
                         <i class="fab fa-python"></i>
@@ -536,7 +620,7 @@
                         <div class="badge-shine"></div>
                     </div>
                 </div>
-                
+
                 <div class="cert-card cert-fly-in" data-direction="bottom-right" style="--delay: 0.6s">
                     <div class="cert-icon cert-icon-rotate">
                         <i class="fas fa-certificate"></i>
@@ -551,7 +635,7 @@
                         <div class="badge-shine"></div>
                     </div>
                 </div>
-                
+
                 <div class="cert-card cert-fly-in" data-direction="bottom" style="--delay: 0.7s">
                     <div class="cert-icon cert-icon-rotate">
                         <i class="fas fa-code"></i>
@@ -637,7 +721,8 @@
                     <p>Software Engineer passionate about AI and intelligent software solutions</p>
                 </div>
                 <div class="social-links">
-                    <a href="https://www.linkedin.com/in/jayakumar02" target="_blank" class="social-link" data-platform="linkedin">
+                    <a href="https://www.linkedin.com/in/jayakumar02" target="_blank" class="social-link"
+                        data-platform="linkedin">
                         <i class="fab fa-linkedin"></i>
                     </a>
                     <a href="https://github.com/jayakumar02" target="_blank" class="social-link" data-platform="github">
@@ -656,4 +741,5 @@
 
     <script src="app.js"></script>
 </body>
+
 </html>
