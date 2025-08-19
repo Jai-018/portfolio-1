@@ -1017,52 +1017,128 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }, 16));
     
-    // Profile image error handling and loading
-    const profileImage = document.querySelector('.profile-image');
-    if (profileImage) {
-        profileImage.addEventListener('load', () => {
-            console.log('Profile image loaded successfully');
-            showNotification('Profile photo loaded successfully! 📸', 'success');
+    // FIXED: Profile photo enhanced animations and loading
+    const profilePhoto = document.querySelector('.profile-photo');
+    const profileImage = document.getElementById('profile-img');
+    const profileFallback = document.getElementById('profile-fallback');
+    
+    if (profilePhoto && profileImage && profileFallback) {
+        // Initially hide fallback
+        profileFallback.style.display = 'none';
+        
+        // Add hover effects to profile photo
+        profilePhoto.addEventListener('mouseenter', () => {
+            profilePhoto.style.transform = 'scale(1.05) rotateY(10deg)';
+            profilePhoto.style.boxShadow = '0 30px 60px rgba(0, 255, 136, 0.4), inset 0 0 40px rgba(0, 255, 136, 0.2)';
+            
+            // Add particles around photo on hover
+            createPhotoParticles();
         });
         
+        profilePhoto.addEventListener('mouseleave', () => {
+            profilePhoto.style.transform = '';
+            profilePhoto.style.boxShadow = '';
+        });
+        
+        // // Handle successful image load
+        // profileImage.addEventListener('load', () => {
+        //     console.log('Profile image loaded successfully');
+        //     profileImage.style.opacity = '0';
+        //     profileImage.style.transform = 'scale(0.8)';
+        //     profileFallback.style.display = 'none';
+            
+        //     // Smooth fade in animation
+        //     setTimeout(() => {
+        //         profileImage.style.transition = 'all 0.8s ease';
+        //         profileImage.style.opacity = '1';
+        //         profileImage.style.transform = 'scale(1)';
+        //     }, 100);
+            
+        //     showNotification('Profile photo loaded with beautiful animations!', 'success');
+        // });
+        
+        // Handle image error
         profileImage.addEventListener('error', () => {
-            console.log('Profile image failed to load, showing placeholder');
+            console.log('Profile image failed to load, showing fallback');
             profileImage.style.display = 'none';
+            profileFallback.style.display = 'flex';
+            profileFallback.style.animation = 'fadeInUp 0.8s ease forwards';
             
-            // Create a more professional placeholder
-            const placeholder = document.createElement('div');
-            placeholder.style.cssText = `
-                width: 100%;
-                height: 100%;
-                background: linear-gradient(135deg, #2a2a2a, #1a1a1a);
-                border-radius: 50%;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                font-size: 60px;
-                color: #00ff88;
-                text-shadow: 0 0 20px rgba(0, 255, 136, 0.5);
-                position: relative;
-            `;
-            placeholder.innerHTML = '<i class="fas fa-user"></i>';
-            profileImage.parentElement.appendChild(placeholder);
-            
-            console.log('Profile placeholder created');
+            showNotification('Using stylized profile display', 'info');
         });
         
-        // Force image reload if it fails initially
-        setTimeout(() => {
-            if (profileImage.complete && profileImage.naturalHeight === 0) {
-                console.log('Retrying profile image load...');
-                profileImage.src = profileImage.src;
-            }
-        }, 1000);
+        // Try to load the image immediately
+        if (profileImage.complete && profileImage.naturalHeight !== 0) {
+            // Image already loaded
+            profileImage.dispatchEvent(new Event('load'));
+        } else if (profileImage.complete) {
+            // Image failed to load
+            profileImage.dispatchEvent(new Event('error'));
+        }
     }
     
+    function createPhotoParticles() {
+        const photoRect = profilePhoto.getBoundingClientRect();
+        const centerX = photoRect.left + photoRect.width / 2;
+        const centerY = photoRect.top + photoRect.height / 2;
+        
+        for (let i = 0; i < 8; i++) {
+            const particle = document.createElement('div');
+            const angle = (i / 8) * Math.PI * 2;
+            const radius = 150;
+            const x = centerX + Math.cos(angle) * radius;
+            const y = centerY + Math.sin(angle) * radius;
+            
+            particle.style.cssText = `
+                position: fixed;
+                width: 6px;
+                height: 6px;
+                background: rgba(0, 255, 136, 0.8);
+                border-radius: 50%;
+                pointer-events: none;
+                z-index: 9998;
+                left: ${x}px;
+                top: ${y}px;
+                animation: photoParticle 2s ease-out forwards;
+                box-shadow: 0 0 10px rgba(0, 255, 136, 0.5);
+            `;
+            
+            document.body.appendChild(particle);
+            
+            setTimeout(() => {
+                if (particle.parentNode) {
+                    particle.remove();
+                }
+            }, 2000);
+        }
+        
+        // Add photo particle animation
+        if (!document.getElementById('photo-particle-style')) {
+            const photoParticleStyle = document.createElement('style');
+            photoParticleStyle.id = 'photo-particle-style';
+            photoParticleStyle.textContent = `
+                @keyframes photoParticle {
+                    0% {
+                        opacity: 1;
+                        transform: scale(1);
+                    }
+                    50% {
+                        opacity: 0.8;
+                        transform: scale(1.2);
+                    }
+                    100% {
+                        opacity: 0;
+                        transform: scale(0) translateY(-50px);
+                    }
+                }
+            `;
+            document.head.appendChild(photoParticleStyle);
+        }
+    } 
     // Initialize welcome message with enhanced text
-    setTimeout(() => {
-        showNotification('Welcome to my enhanced AI portfolio! 🚀✨', 'success');
-    }, 2000);
+    // setTimeout(() => {
+    //     showNotification('Welcome to my enhanced AI portfolio! 🚀✨', 'success');
+    // }, 2000);
     
     // Additional enhanced animations on load
     setTimeout(() => {
